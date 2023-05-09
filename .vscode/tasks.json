@@ -1,0 +1,17 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build-in-container",
+            "type": "shell",
+            "command": "docker run --volume ${workspaceFolder}/app:/app 00x56/docker-opengl /bin/bash -c 'mkdir -p /app/build && cd /app/build && cmake -D CMAKE_BUILD_TYPE=DEBUG .. && make'",
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true,
+            },
+        },
+    ],
+}

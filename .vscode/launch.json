@@ -1,0 +1,24 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "(gdb) Launch",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "/app/build/opengl-app",
+            "args": [],
+            "stopAtEntry": true,
+            "cwd": "/app",
+            "environment": [],
+            "externalConsole": true,
+            "sourceFileMap": { "/app/src": "${workspaceFolder}/app/src" },
+            "pipeTransport": {
+                "debuggerPath": "/usr/bin/gdb",
+                "pipeProgram": "/usr/bin/docker",
+                "pipeArgs": [ "run", "--rm", "--privileged", "--interactive", "--volume", "${workspaceFolder}/app:/app", "--workdir", "/app", "00x56/docker-opengl", "sh", "-c" ],
+                "pipeCwd": "",
+            },
+            "MIMode": "gdb",
+        },
+    ],
+}
